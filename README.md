@@ -13,9 +13,9 @@
 - [x] Header
 - [x] Hero Section
 - [x] SearchBar
-- [] Strapi(backend)
-- [] Categories Section
-- [] Popular Doctors Section
+- [x] Strapi(backend)
+- [x] Categories Section
+- [x] Doctors Section
 - [] Footer
 
 ## Deploy on Vercel
