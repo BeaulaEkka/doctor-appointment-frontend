@@ -16,6 +16,10 @@
 - [x] Strapi(backend)
 - [x] Categories Section
 - [x] Doctors Section
-- [] Footer
+- [x] Footer
 
 ## Deploy on Vercel
+
+## Footer
+
+Footer is done through HyperUi

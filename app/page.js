@@ -6,6 +6,7 @@ import Search from "./_components/Search";
 import DoctorList from "./_components/DoctorList";
 import { useEffect, useState } from "react";
 import GlobalApi from "./_utils/GlobalApi";
+import Footer from "./_components/Footer";
 
 export default function Home() {
   const [doctorList, setDoctorList] = useState([]);
@@ -20,10 +21,13 @@ export default function Home() {
     });
   };
   return (
-    <main className="flex min-h-screen flex-col items-center justify-between py-24  mx-auto">
-      <Hero />
-      <Search />
-      <DoctorList doctorList={doctorList} />
-    </main>
+    <div>
+      <main className="flex min-h-screen flex-col items-center justify-between py-24  mx-auto">
+        <Hero />
+        <Search />
+        <DoctorList doctorList={doctorList} />
+      </main>
+      <Footer />
+    </div>
   );
 }
