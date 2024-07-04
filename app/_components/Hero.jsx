@@ -10,9 +10,9 @@ export default function Hero() {
           <div className="relative h-64 overflow-hidden rounded-lg sm:h-80 lg:order-last lg:h-full">
             <Image
               alt=""
-              src="/images/ldoc4.jpg"
-              width={500}
-              height={500}
+              src="/images/groupdoctors.jpg"
+              width={300}
+              height={300}
               className="absolute inset-0 h-full w-full object-cover"
             />
           </div>

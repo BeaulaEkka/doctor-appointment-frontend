@@ -33,7 +33,7 @@ export default function DoctorList({ doctorList }) {
                         <h1 className="font-bold text-gray-900 mt-2">
                           Dr.{doctor.attributes.Name}
                         </h1>
-                        <p className="text-md text-blue-500 font-semibold">
+                        <p className="text-md text-blue-600 font-semibold">
                           {doctor.attributes.Years_of_Experience} years
                         </p>
                         <p className="flex wrap-text">
@@ -41,7 +41,7 @@ export default function DoctorList({ doctorList }) {
                         </p>
                       </div>
                       <div className="flex justify-start">
-                        <Button className="bg-primary px-4 py-2 rounded-sm text-white hover:bg-primary/90">
+                        <Button className="bg-white border-2 border-blue-600 px-4 py-2 rounded-sm text-blue-600 hover:bg-primary hover:border-transparent hover:text-white">
                           Book Now
                         </Button>
                       </div>
@@ -51,7 +51,7 @@ export default function DoctorList({ doctorList }) {
               );
             })
           : [1, 2, 3, 4, 5, 6].map((item, index) => (
-              <div className="flex flex-col gap-4">
+              <div className="flex flex-col gap-4 animate-pulse">
                 <div className="h-[210px] bg-blue-50 w-full rounded-lg"></div>
                 <div className="h-[20px] bg-blue-50 w-full rounded-lg"></div>
                 <div className="h-[20px] w-[160px] bg-blue-50 rounded-lg"></div>

@@ -17,6 +17,7 @@
 - [x] Categories Section
 - [x] Doctors Section
 - [x] Footer
+- [x] Routing
 
 ## Deploy on Vercel
 

@@ -5,6 +5,7 @@ import { Button } from "@/components/ui/button";
 import SearchIcon from "./SearchIcon";
 import GlobalApi from "../_utils/GlobalApi";
 import Image from "next/image";
+import Link from "next/link";
 
 export default function Search() {
   const [categoryList, setCategoryList] = useState([]);
@@ -36,37 +37,45 @@ export default function Search() {
         </div>
         <div className="flex flex-col">
           <div className="flex gap-6 flex-wrap mx-auto ">
-            {categoryList.map((item, index) => {
-              if (index < 5) {
-                const imageUrl =
-                  item.attributes?.Icon?.data?.[0]?.attributes?.url;
+            {categoryList.length > 0
+              ? categoryList.map((item, index) => {
+                  if (index < 5) {
+                    const imageUrl =
+                      item.attributes?.Icon?.data?.[0]?.attributes?.url;
 
-                return (
-                  <div key={item.id} className="capitalize flex gap-4">
-                    <div className="flex lg:w-56 w-[400px] lg:gap-8 gap-2">
-                      <div className="bg-white/80 p-4 rounded-md flex flex-col w-full justify-center shadow-md hover:scale-110 transition-all cursor-pointer">
-                        {imageUrl ? (
-                          <Image
-                            src={imageUrl}
-                            alt={item.attributes.Name}
-                            width={92}
-                            height={92}
-                            className="flex items-center self-center"
-                          />
-                        ) : (
-                          <div className="w-40 h-40 flex items-center justify-center">
-                            No Image Available
+                    return (
+                      <Link href={"/search/" + item.attributes.Name}>
+                        <div key={item.id} className="capitalize flex gap-4">
+                          <div className="flex lg:w-56 w-[400px] lg:gap-8 gap-2">
+                            <div className="bg-white/80 p-4 rounded-md flex flex-col w-full justify-center shadow-md hover:scale-110 transition-all cursor-pointer">
+                              {imageUrl ? (
+                                <Image
+                                  src={imageUrl}
+                                  alt={item.attributes.Name}
+                                  width={92}
+                                  height={92}
+                                  className="flex items-center self-center"
+                                />
+                              ) : (
+                                <div className="w-40 h-40 flex items-center justify-center">
+                                  No Image Available
+                                </div>
+                              )}
+                              <h1 className="text-gray-400">
+                                {item.attributes.Name}
+                              </h1>
+                            </div>
                           </div>
-                        )}
-                        <h1 className="text-gray-400">
-                          {item.attributes.Name}
-                        </h1>
-                      </div>
-                    </div>
+                        </div>
+                      </Link>
+                    );
+                  }
+                })
+              : [1, 2, 3, 4, 5].map((item, index) => (
+                  <div key={index} className="flex gap-4 animate-pulse ">
+                    <div className="h-[110px] bg-white w-[220px] rounded-lg "></div>
                   </div>
-                );
-              }
-            })}
+                ))}
           </div>
         </div>
       </div>
