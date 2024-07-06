@@ -18,6 +18,7 @@
 - [x] Doctors Section
 - [x] Footer
 - [x] Routing
+- [x] Authentication
 
 ## Deploy on Vercel
 

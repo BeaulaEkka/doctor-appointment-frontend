@@ -29,10 +29,10 @@ export default function CategoryList() {
 
   const getCategoryList = () => {
     GlobalApi.getCategory().then((resp) => {
-      console.log(resp.data.data); // Log the response data
       setCategoryList(resp.data.data);
     });
   };
+  
   return (
     <div className="h-screen flex fixed flex-col m-5">
       <Command>
@@ -47,7 +47,7 @@ export default function CategoryList() {
                 // description={item.description}
               >
                 <Link
-                  href={"/search/" + item.attributes.Name}
+                  href={"/search/" + item?.attributes?.Name}
                   className={`p-2 flex gap-3 items-center cursor-pointer w-full rounded-md ${
                     category == item.attributes.Name && "bg-blue-100 "
                   }`}
