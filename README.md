@@ -28,4 +28,4 @@ Footer is done through HyperUi
 
 ## Authentication
 
-![alt text](https://github.com/[username]/[reponame]/blob/[branch]/image.jpg?raw=true)
+![Authentication Flow](https://github.com/BeaulaEkka/doctor-appointment-frontend/blob/master/public/images/authentication%20flow.png)
