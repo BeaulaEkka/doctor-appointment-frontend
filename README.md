@@ -18,10 +18,14 @@
 - [x] Doctors Section
 - [x] Footer
 - [x] Routing
-- [x] Authentication
+- [x] [Authentication](#authentication)
 
 ## Deploy on Vercel
 
 ## Footer
 
 Footer is done through HyperUi
+
+## Authentication
+
+![alt text](https://github.com/[username]/[reponame]/blob/[branch]/image.jpg?raw=true)
