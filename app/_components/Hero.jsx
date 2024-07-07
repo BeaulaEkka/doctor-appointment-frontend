@@ -13,6 +13,7 @@ export default function Hero() {
               src="/images/groupdoctors.jpg"
               width={300}
               height={300}
+              priority={true}
               className="absolute inset-0 h-full w-full object-cover"
             />
           </div>

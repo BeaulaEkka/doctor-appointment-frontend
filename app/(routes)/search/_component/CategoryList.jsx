@@ -30,9 +30,10 @@ export default function CategoryList() {
   const getCategoryList = () => {
     GlobalApi.getCategory().then((resp) => {
       setCategoryList(resp.data.data);
+      console.log("categoryList", categoryList);
     });
   };
-  
+
   return (
     <div className="h-screen flex fixed flex-col m-5">
       <Command>
@@ -57,6 +58,7 @@ export default function CategoryList() {
                     alt={item.attributes.Name}
                     width={30}
                     height={30}
+                    priority={true}
                   />
                   <label htmlFor="">{item.attributes.Name}</label>
                 </Link>

@@ -92,7 +92,8 @@ export default function DoctorList({
                         alt={doctor.attributes.Name}
                         width={300}
                         height={200}
-                        className="h-[200px] w-full object-cover rounded-md shadow-md "
+                        priority={true}
+                        className="h-[200px] w-auto object-cover rounded-md shadow-md "
                       />
                     )}
                     <div className="flex flex-grow flex-col gap-1 text-gray-400">

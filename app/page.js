@@ -6,7 +6,7 @@ import Search from "./_components/Search";
 import DoctorList from "./_components/DoctorList";
 import { useEffect, useState } from "react";
 import GlobalApi from "./_utils/GlobalApi";
-import Footer from "./_components/Footer";
+
 
 export default function Home() {
   const [doctorList, setDoctorList] = useState([]);

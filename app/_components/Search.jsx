@@ -44,7 +44,10 @@ export default function Search() {
                       item.attributes?.Icon?.data?.[0]?.attributes?.url;
 
                     return (
-                      <Link href={"/search/" + item.attributes.Name}>
+                      <Link
+                        href={"/search/" + item.attributes.Name}
+                        key={index}
+                      >
                         <div key={item.id} className="capitalize flex gap-4">
                           <div className="flex lg:w-56 w-[400px] lg:gap-8 gap-2">
                             <div className="bg-white/80 p-4 rounded-md flex flex-col w-full justify-center shadow-md hover:scale-110 transition-all cursor-pointer">
