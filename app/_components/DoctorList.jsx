@@ -68,6 +68,7 @@
 
 import { Button } from "@/components/ui/button";
 import Image from "next/image";
+import Link from "next/link";
 
 export default function DoctorList({
   doctorList,
@@ -91,9 +92,9 @@ export default function DoctorList({
                         src={imageUrl}
                         alt={doctor.attributes.Name}
                         width={300}
-                        height={200}
+                        height={300}
                         priority={true}
-                        className="h-[200px] w-auto object-cover rounded-md shadow-md "
+                        className="object-cover rounded-md shadow-md "
                       />
                     )}
                     <div className="flex flex-grow flex-col gap-1 text-gray-400">
@@ -120,9 +121,11 @@ export default function DoctorList({
                       </p>
                     </div>
                     <div className="flex justify-start">
-                      <Button className="bg-white border-2 border-blue-600 px-4 py-2 rounded-sm text-blue-600 hover:bg-primary hover:border-transparent hover:text-white">
-                        Book Now
-                      </Button>
+                      <Link href={"/details/" + doctor?.id}>
+                        <Button className="bg-white border-2 border-blue-600 px-4 py-2 rounded-sm text-blue-600 hover:bg-primary hover:border-transparent hover:text-white">
+                          Book Now
+                        </Button>
+                      </Link>
                     </div>
                   </div>
                 </div>

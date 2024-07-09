@@ -19,6 +19,7 @@
 - [x] Footer
 - [x] Routing
 - [x] [Authentication](#authentication)
+- [x] [Middleware](#middleware)
 
 ## Deploy on Vercel
 
@@ -29,3 +30,5 @@ Footer is done through HyperUi
 ## Authentication
 
 ![Authentication Flow](https://github.com/BeaulaEkka/doctor-appointment-frontend/blob/master/public/images/authentication%20flow.png)
+
+## Middleware

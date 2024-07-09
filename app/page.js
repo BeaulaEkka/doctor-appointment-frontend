@@ -6,7 +6,7 @@ import Search from "./_components/Search";
 import DoctorList from "./_components/DoctorList";
 import { useEffect, useState } from "react";
 import GlobalApi from "./_utils/GlobalApi";
-
+import { SpeedInsights } from "@vercel/speed-insights/next";
 
 export default function Home() {
   const [doctorList, setDoctorList] = useState([]);
@@ -26,6 +26,7 @@ export default function Home() {
         <Hero />
         <Search />
         <DoctorList doctorList={doctorList} />
+        <SpeedInsights />
       </main>
     </div>
   );
