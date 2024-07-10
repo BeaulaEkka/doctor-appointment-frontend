@@ -1,3 +1,5 @@
+import { Database } from "lucide-react";
+
 const { default: axios } = require("axios");
 
 const API_KEY = process.env.NEXT_PUBLIC_STRAPI_CATEGORY_API_KEY;
@@ -9,18 +11,24 @@ const axiosClient = axios.create({
   },
 });
 
+/**GET */
+
 const getCategory = () => axiosClient.get("categories?populate=*");
 const getDoctorList = () => axiosClient.get("doctors?populate=*");
 const getDoctorByCategory = (category) =>
   axiosClient.get(
     "/doctors?filters[categories][Name][$in]=" + category + "&populate=*"
   );
-
 const getDoctorById = (id) => axiosClient.get("/doctors/" + id + "?populate=*");
+
+/**POST */
+
+const bookAppointment = (data) => axiosClient.post("/appointments", data);
 
 export default {
   getCategory,
   getDoctorList,
   getDoctorByCategory,
   getDoctorById,
+  bookAppointment,
 };

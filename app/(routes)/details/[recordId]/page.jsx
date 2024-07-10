@@ -10,6 +10,7 @@ import {
 } from "lucide-react";
 import Image from "next/image";
 import React, { useEffect, useState } from "react";
+import BookAppointments from "../_components/BookAppointments";
 
 export default function Details({ params }) {
   const [doctorDetails, setDoctorDetails] = useState();
@@ -121,7 +122,7 @@ export default function Details({ params }) {
                 </div>
 
                 <div className="mt-10">
-                  <Button varient="default">Book Appointment</Button>
+                  <BookAppointments doctorDetails={doctorDetails} />
                 </div>
               </div>
             </div>
