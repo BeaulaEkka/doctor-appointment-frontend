@@ -166,6 +166,9 @@ export default function BookAppointments({ doctorDetails }) {
     GlobalApi.bookAppointment(data).then((resp) => {
       console.log("booking appointments", resp);
       if (resp) {
+        GlobalApi.sendEmail(data).then((resp) => {
+          console.log("email sent", resp);
+        });
         toast("Your appointment is successfully booked!");
       }
     });

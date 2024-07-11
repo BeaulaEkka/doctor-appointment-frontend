@@ -20,6 +20,10 @@
 - [x] Routing
 - [x] [Authentication](#authentication)
 - [x] [Middleware](#middleware)
+- [x] [Booking Appointments](#booking-appointments)
+- [x] [Sending out auto Email-React Email](#sending-out-auto-email-react-email)
+- [x] [Sending out auto Email-Resend](#sending-out-auto-email-resend)
+- [] [User Booking](#user-booking)
 
 ## Deploy on Vercel
 
@@ -32,3 +36,11 @@ Footer is done through HyperUi
 ![Authentication Flow](https://github.com/BeaulaEkka/doctor-appointment-frontend/blob/master/public/images/authentication%20flow.png)
 
 ## Middleware
+
+## Booking Appointments
+
+## Sending out auto Email-React Email
+
+## Sending out auto Email-Resend
+
+## User Booking
