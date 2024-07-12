@@ -23,7 +23,8 @@
 - [x] [Booking Appointments](#booking-appointments)
 - [x] [Sending out auto Email-React Email](#sending-out-auto-email-react-email)
 - [x] [Sending out auto Email-Resend](#sending-out-auto-email-resend)
-- [] [User Booking](#user-booking)
+- [x] [User Booking](#user-booking)
+- [x] [Cancel Appointment](#cancel-appointment)
 
 ## Deploy on Vercel
 
@@ -44,3 +45,7 @@ Footer is done through HyperUi
 ## Sending out auto Email-Resend
 
 ## User Booking
+
+## Cancel Appointment
+
+Delete Api

@@ -42,11 +42,13 @@ export default function Page() {
           <BookingList
             bookingList={filterUserBooking("upcoming")}
             expired={false}
+            updateRecord={() => getUserBookingList()}
           />
         </TabsContent>
         <TabsContent value="expired">
           <BookingList
             bookingList={filterUserBooking("expired")}
+            updateRecord={() => getUserBookingList()}
             expired={true}
           />
         </TabsContent>

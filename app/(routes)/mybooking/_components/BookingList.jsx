@@ -2,11 +2,25 @@ import { Button, buttonVariants } from "@/components/ui/button";
 import { CalendarDays, Clock10, MapPinIcon, PhoneCall } from "lucide-react";
 import Image from "next/image";
 import React from "react";
+import CancelAppointment from "./CancelAppointment";
+import GlobalApi from "@/app/_utils/GlobalApi";
+import { toast } from "sonner";
 
-export default function BookingList({ bookingList, expired }) {
+export default function BookingList({ bookingList, expired, updateRecord }) {
   const formatTime = (time) => {
     const hours = new Date(`1970-01-01T${time}`).getHours();
     return hours < 12 ? "AM" : "PM";
+  };
+
+  const onDeleteBooking = (item) => {
+    console.log("item", item);
+    GlobalApi.deleteBooking(item.id).then((resp) => {
+      console.log("resp", resp);
+      if (resp) {
+        toast("Appointment Deleted Successfully!");
+        updateRecord();
+      }
+    });
   };
   return (
     <div>
@@ -69,12 +83,9 @@ export default function BookingList({ bookingList, expired }) {
             <div>
               {" "}
               {!expired && (
-                <Button
-                  variant="outline"
-                  className="border border-primary text-primary hover:bg-primary hover:text-white"
-                >
-                  Cancel Appointment
-                </Button>
+                <CancelAppointment
+                  onContinueClick={() => onDeleteBooking(item)}
+                />
               )}
             </div>
           </div>

@@ -1,11 +1,9 @@
-import { Database, DatabaseBackup } from "lucide-react";
-
 const { default: axios } = require("axios");
 
 const API_KEY = process.env.NEXT_PUBLIC_STRAPI_CATEGORY_API_KEY;
 
 const axiosClient = axios.create({
-  baseURL: "http://localhost:1337/api",
+  baseURL: "https://doctor-appointment-backend-ytyg.onrender.com/api",
   headers: {
     Authorization: `Bearer ${API_KEY}`,
   },
@@ -31,6 +29,9 @@ const getUserBookingList = (userEmail) =>
 const bookAppointment = (data) => axiosClient.post("/appointments", data);
 const sendEmail = (data) => axios.post("/api/sendEmail", data);
 
+/**DELETE */
+const deleteBooking = (id) => axiosClient.delete("/appointments/" + id);
+
 export default {
   getCategory,
   getDoctorList,
@@ -39,4 +40,5 @@ export default {
   bookAppointment,
   sendEmail,
   getUserBookingList,
+  deleteBooking,
 };
