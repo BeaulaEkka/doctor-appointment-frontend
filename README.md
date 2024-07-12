@@ -53,4 +53,4 @@ Delete Api
 
 ## Deploy Bakend
 
-Deployed the Strapi backend on render.com.
+Deployed the Strapi backend on render.com

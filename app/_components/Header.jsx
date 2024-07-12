@@ -25,8 +25,8 @@ export default function Header() {
     },
     {
       id: 2,
-      name: "Explore",
-      path: "/explore",
+      name: "About",
+      path: "/about",
     },
     {
       id: 3,
@@ -44,16 +44,16 @@ export default function Header() {
 
   return (
     <div className="py-4 shadow-sm ">
-      <div className="w-[70%]  mx-auto justify-between flex">
+      <div className="w-[70%]  mx-auto flex justify-between items-center  ">
         <div>
           <Logo />
         </div>
-        <div className="flex gap-4 ">
-          <ul className="md:flex gap-4 items-center hidden font-semibold ">
+        <div className="flex gap-4  ">
+          <ul className="md:flex gap-6 items-center hidden font-semibold ">
             {Menu.map((item, index) => (
               <Link href={item.path} key={index}>
                 {" "}
-                <li className="hover:text-primary cursor-pointer hover:scale-105">
+                <li className="hover:text-primary cursor-pointer hover:scale-105 ">
                   {item.name}
                 </li>
               </Link>
@@ -83,12 +83,21 @@ export default function Header() {
               </PopoverContent>
             </Popover>
           ) : (
-            <LoginLink>
-              <Button variant="default">Sign In</Button>
-            </LoginLink>
+            <div className="flex gap-4 ">
+              <LoginLink>
+                <Button
+                  variant="outline"
+                  className="hover:bg-primary hover:text-white py-1"
+                >
+                  Sign In
+                </Button>
+              </LoginLink>
+              <RegisterLink>
+                {" "}
+                <Button variant="default">Sign Up</Button>
+              </RegisterLink>
+            </div>
           )}
-
-          <RegisterLink>Sign up</RegisterLink>
         </div>
       </div>
     </div>
