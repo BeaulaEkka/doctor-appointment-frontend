@@ -88,7 +88,7 @@ export default function Header() {
             </LoginLink>
           )}
 
-          {/* <RegisterLink>Sign up</RegisterLink> */}
+          <RegisterLink>Sign up</RegisterLink>
         </div>
       </div>
     </div>

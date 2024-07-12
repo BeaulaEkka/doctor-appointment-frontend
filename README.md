@@ -25,6 +25,7 @@
 - [x] [Sending out auto Email-Resend](#sending-out-auto-email-resend)
 - [x] [User Booking](#user-booking)
 - [x] [Cancel Appointment](#cancel-appointment)
+- [x] [Deploy Bakend](#deploy-bakend)
 
 ## Deploy on Vercel
 
@@ -49,3 +50,7 @@ Footer is done through HyperUi
 ## Cancel Appointment
 
 Delete Api
+
+## Deploy Bakend
+
+Deployed the Strapi backend on render.com.
