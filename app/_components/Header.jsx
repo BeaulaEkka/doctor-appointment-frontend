@@ -74,7 +74,7 @@ export default function Header() {
                 <ul className="flex flex-col gap-2 cursor-pointer ">
                   <li className="hover:bg-slate-100 p-2 rounded-sm">Profile</li>
                   <li className="hover:bg-slate-100 p-2 rounded-sm">
-                    My Booking
+                    <Link href={"/mybooking"}>My Booking</Link>
                   </li>
                   <li className="hover:bg-slate-100 p-2 rounded-sm">
                     <LogoutLink>Log out</LogoutLink>

@@ -1,4 +1,4 @@
-import { Database } from "lucide-react";
+import { Database, DatabaseBackup } from "lucide-react";
 
 const { default: axios } = require("axios");
 
@@ -21,6 +21,11 @@ const getDoctorByCategory = (category) =>
   );
 const getDoctorById = (id) => axiosClient.get("/doctors/" + id + "?populate=*");
 
+const getUserBookingList = (userEmail) =>
+  axiosClient.get(
+    `/appointments?filters[Email][$eq]=${userEmail}&populate=doctor,doctor.Image`
+  );
+
 /**POST */
 
 const bookAppointment = (data) => axiosClient.post("/appointments", data);
@@ -33,4 +38,5 @@ export default {
   getDoctorById,
   bookAppointment,
   sendEmail,
+  getUserBookingList,
 };
