@@ -94,7 +94,7 @@ export default function DoctorList({
                         width={300}
                         height={300}
                         priority={true}
-                        className="object-cover rounded-md shadow-md "
+                        className="object-cover rounded-md shadow-md w-full h-48"
                       />
                     )}
                     <div className="flex flex-grow flex-col gap-1 text-gray-400">

@@ -25,7 +25,7 @@
 - [x] [Sending out auto Email-Resend](#sending-out-auto-email-resend)
 - [x] [User Booking](#user-booking)
 - [x] [Cancel Appointment](#cancel-appointment)
-- [x] [Deploy Bakend](#deploy-bakend)
+- [x] [Deploy Backend](#deploy-bakend)
 
 ## Deploy on Vercel
 
