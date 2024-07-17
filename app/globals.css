@@ -74,3 +74,10 @@
     @apply bg-background text-foreground;
   }
 }
+
+.custom-dialog-content {
+  width: 80%;
+  max-width: 1000px;
+  height: 80vh;
+  max-height: 90vh;
+}

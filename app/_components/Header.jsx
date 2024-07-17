@@ -35,8 +35,8 @@ export default function Header() {
     },
     {
       id: 4,
-      name: "Home",
-      path: "/",
+      name: "My Booking",
+      path: "/mybooking",
     },
   ];
 

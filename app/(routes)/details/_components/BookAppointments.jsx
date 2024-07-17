@@ -1,92 +1,3 @@
-// import React, { useEffect, useState } from "react";
-// import {
-//   Dialog,
-//   DialogContent,
-//   DialogDescription,
-//   DialogHeader,
-//   DialogTitle,
-//   DialogTrigger,
-// } from "@/components/ui/dialog";
-// import { Button } from "@/components/ui/button";
-// import { Calendar } from "@/components/ui/calendar";
-// import { CalendarDays } from "lucide-react";
-
-// export default function BookAppointments({ doctorDetails }) {
-//   const [date, setDate] = useState(new Date());
-//   const [timeSlots, setTimeSlots] = useState([]);
-//   const [selectedTimeSlot, setSelectedTimeSlot] = useState(null);
-
-//   useEffect(() => {
-//     if (doctorDetails) {
-//       generateTimeSlots(
-//         doctorDetails.attributes.StartTime,
-//         doctorDetails.attributes.EndTime
-//       );
-//       console.log("timeSlots", timeSlots);
-//     }
-//   }, [doctorDetails]);
-
-//   const generateTimeSlots = (startTime, endTime) => {
-//     const start = new Date(`1970-01-01T${startTime}:00`);
-//     const end = new Date(`1970-01-01T${endTime}:00`);
-//     const slots = [];
-
-//     while (start < end) {
-//       slots.push(
-//         new Date(start).toLocaleTimeString([], {
-//           hour: "2-digit",
-//           minute: "2-digit",
-//         })
-//       );
-//       start.setMinutes(start.getMinutes() + 30);
-//     }
-
-//     setTimeSlots(slots);
-//   };
-
-//   return (
-//     <div>
-//       <Dialog>
-//         <DialogTrigger>
-//           <Button varient="default">Book Appointment</Button>
-//         </DialogTrigger>
-//         <DialogContent>
-//           <DialogHeader>
-//             <DialogTitle>Book Appointment</DialogTitle>
-//             <DialogDescription>
-//               {/**Calendar */}
-//               <div className="grid grid-cols-1 md:grid-cols-2">
-//                 <div className="flex flex-col mb-2">
-//                   <div className="flex gap-2 py-2">
-//                     <div className="flex gap-3 items-center text-primary">
-//                       <CalendarDays />
-//                     </div>
-//                     <p>Select Date</p>
-//                   </div>
-//                   <Calendar
-//                     mode="single"
-//                     selected={date}
-//                     onSelect={setDate}
-//                     className="rounded-md border"
-//                   />
-//                 </div>
-//                 <div className="border ">
-//                   {timeSlots.map((timeSlot, index) => {
-//                     <div key={index}>{timeSlot.slot}</div>;
-//                   })}
-//                   <Button variant="default" className="mt-4">
-//                     Confirm Booking
-//                   </Button>
-//                 </div>{" "}
-//               </div>
-//             </DialogDescription>
-//           </DialogHeader>
-//         </DialogContent>
-//       </Dialog>
-//     </div>
-//   );
-// }
-
 import React, { useEffect, useState } from "react";
 import {
   Dialog,
@@ -100,7 +11,7 @@ import {
 } from "@/components/ui/dialog";
 import { Button } from "@/components/ui/button";
 import { Calendar } from "@/components/ui/calendar";
-import { CalendarDays } from "lucide-react";
+import { CalendarDays, Clock10Icon } from "lucide-react";
 import { useKindeBrowserClient } from "@kinde-oss/kinde-auth-nextjs";
 import GlobalApi from "@/app/_utils/GlobalApi";
 import { toast } from "sonner";
@@ -151,6 +62,10 @@ export default function BookAppointments({ doctorDetails }) {
     return day < new Date().setHours(0, 0, 0, 0);
   };
 
+  // const isPastTime = (time) => {
+  //   return time < new Time().setHours(0, 0, 0, 0);
+  // };
+
   const saveBooking = () => {
     const data = {
       data: {
@@ -175,50 +90,60 @@ export default function BookAppointments({ doctorDetails }) {
   };
 
   return (
-    <div>
+    <div className="">
       <Dialog>
         <DialogTrigger>
           <Button variant="default">Book Appointment</Button>
         </DialogTrigger>
-        <DialogContent>
+        <DialogContent className="w-full max-w-3xl ">
           <DialogHeader>
-            <DialogTitle>Book Appointment</DialogTitle>
+            <DialogTitle className="mb-6">Book Appointment</DialogTitle>
             <DialogDescription>
-              <div className="grid grid-cols-1 md:grid-cols-2">
-                <div className="flex flex-col mb-2">
-                  <div className="flex gap-2 py-2">
-                    <div className="flex gap-3 items-center text-primary">
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-4 ">
+                <div className="flex flex-col mb-2  rounded-md ">
+                  <div className="flex gap-2 py-2 items-center justify-center mb-2 rounded-md">
+                    <div className=" flex gap-3 items-center  text-primary ">
                       <CalendarDays />
                     </div>
                     <p>Select Date</p>
                   </div>
-                  <Calendar
-                    mode="single"
-                    selected={date}
-                    onSelect={setDate}
-                    className="rounded-md border"
-                    disabled={isPastDay}
-                  />
+                  <div className="border p-2 rounded-md">
+                    <Calendar
+                      mode="single"
+                      selected={date}
+                      onSelect={setDate}
+                      className="h-72 rounded-md justify-center flex items-center "
+                      disabled={isPastDay}
+                    />
+                  </div>
                 </div>
-                <div className="border rounded-md p-1 flex flex-wrap gap-2 justify-center items-center">
-                  {timeSlots.map((timeSlot, index) => (
-                    <div
-                      key={index}
-                      onClick={() => setSelectedTimeSlot(timeSlot)}
-                      className={`py-2 bg-blue-100 flex gap-2 px-3 rounded-md hover:bg-blue-300 hover:font-semibold ${
-                        timeSlot === selectedTimeSlot
-                          ? "bg-primary text-white"
-                          : ""
-                      }`}
-                    >
-                      {timeSlot}
+                <div className=" rounded-md p-1 flex flex-wrap gap-2 justify-center items-center">
+                  <div className="flex gap-3 items-center text-primary">
+                    <Clock10Icon />
+                  </div>
+                  <p>Select Time</p>
+                  <div className="w-96 h-[305px] border rounded-md  pt-12">
+                    <div className="md:p-6 p-2 grid  lg:grid-cols-4 md:grid-cols-4 grid-cols-3 gap-1 lg:gap-2 text-xs md:text-sm">
+                      {timeSlots.map((timeSlot, index) => (
+                        <div
+                          key={index}
+                          onClick={() => setSelectedTimeSlot(timeSlot)}
+                          className={`py-2 border flex gap-1 md:gap-2 md:px-3 px-1 rounded-md hover:bg-blue-300 hover:font-semibold justify-center ${
+                            timeSlot === selectedTimeSlot
+                              ? "bg-primary text-white"
+                              : ""
+                          }`}
+                        >
+                          {timeSlot}
+                        </div>
+                      ))}
                     </div>
-                  ))}
+                  </div>
                 </div>
               </div>
             </DialogDescription>
           </DialogHeader>
-          <DialogFooter className="sm:justify-start">
+          <DialogFooter className="sm:justify-end">
             <DialogClose asChild>
               <Button type="button" variant="secondary">
                 Cancel
