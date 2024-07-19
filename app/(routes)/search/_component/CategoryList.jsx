@@ -44,8 +44,8 @@ export default function CategoryList() {
             {categoryList.map((item, index) => (
               <CommandItem
                 key={index}
-                // command={item.name}
-                // description={item.description}
+                command={item.name}
+                description={item.description}
               >
                 <Link
                   href={"/search/" + item?.attributes?.Name}

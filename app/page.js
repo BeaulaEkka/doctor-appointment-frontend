@@ -25,7 +25,10 @@ export default function Home() {
       <main className="flex min-h-screen flex-col items-center justify-between py-24  mx-auto flex-grow">
         <Hero />
         <Search />
-        <DoctorList doctorList={doctorList} />
+        <div className="w-[70%]">
+          <DoctorList doctorList={doctorList} />
+        </div>
+
         <SpeedInsights />
       </main>
     </div>

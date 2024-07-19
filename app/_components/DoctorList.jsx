@@ -1,5 +1,3 @@
-
-
 import { Button } from "@/components/ui/button";
 import Image from "next/image";
 import Link from "next/link";
@@ -9,18 +7,18 @@ export default function DoctorList({
   heading = "Popular Doctors",
 }) {
   return (
-    <div className="my-24 lg:w-[70%] w-[90%]">
-      <h1 className="mb-24 font-bold text-blue-500 text-2xl">
+    <div className="my-16 lg:w-[100%] w-[90%]">
+      <h1 className="mb-16 font-bold text-blue-500 text-2xl pl-2">
         {decodeURIComponent(heading)}
       </h1>
-      <div className="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-4 gap-6">
+      <div className="border border-green-500 flex flex-wrap items-center justify-center gap-6 mx-auto">
         {doctorList.length > 0
           ? doctorList.map((doctor, index) => {
               const imageUrl =
                 doctor.attributes?.Image?.data[0]?.attributes?.url || "";
               return (
                 <div key={index}>
-                  <div className="h-[440px] w-full flex flex-col gap-4 rounded-md p-4 justify-left text-left shadow-md hover:border-2 hover:border-gray-300">
+                  <div className="h-[440px] w-[300px] flex flex-col gap-4 rounded-md p-4 justify-left text-left shadow-md hover:border-2 hover:border-gray-300">
                     {imageUrl && (
                       <Image
                         src={imageUrl}
@@ -28,7 +26,7 @@ export default function DoctorList({
                         width={300}
                         height={300}
                         priority={true}
-                        className="object-cover rounded-md shadow-md w-full h-48"
+                        className="object-cover rounded-md shadow-md h-48"
                       />
                     )}
                     <div className="flex flex-grow flex-col gap-1 text-gray-400">

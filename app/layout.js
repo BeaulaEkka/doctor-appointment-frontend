@@ -22,7 +22,7 @@ export default function RootLayout({ children }) {
           <Toaster/>
         </div>
         <div>
-          <Footer />
+        <Footer />
         </div>
       </body>
     </html>

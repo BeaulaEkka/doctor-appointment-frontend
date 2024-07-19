@@ -1,5 +1,6 @@
 "use client";
 import React, { useEffect, useState } from "react";
+import { useRouter } from "next/navigation";
 import { Input } from "@/components/ui/input";
 import { Button } from "@/components/ui/button";
 import SearchIcon from "./SearchIcon";
@@ -9,6 +10,8 @@ import Link from "next/link";
 
 export default function Search() {
   const [categoryList, setCategoryList] = useState([]);
+  const [searchQuery, setSearchQuery] = useState("");
+  const router = useRouter();
 
   useEffect(() => {
     getCategoryList();
@@ -16,9 +19,16 @@ export default function Search() {
 
   const getCategoryList = () => {
     GlobalApi.getCategory().then((resp) => {
-      console.log(resp.data.data); // Log the response data
+      console.log(resp.data.data);
       setCategoryList(resp.data.data);
     });
+  };
+
+  const handleSearch = (e) => {
+    e.preventDefault();
+    if (searchQuery.trim()) {
+      router.push(`/search/${searchQuery}`);
+    }
   };
 
   return (
@@ -28,13 +38,21 @@ export default function Search() {
         <p className="text-gray-400 pt-2">
           Search for a Doctor and book your Appointment
         </p>
-        <div className="flex w-full max-w-sm items-center space-x-2 self-center my-12 mx-auto">
-          <Input type="text" placeholder="Search" />
+        <form
+          onSubmit={handleSearch}
+          className="flex w-full max-w-sm items-center space-x-2 self-center my-12 mx-auto"
+        >
+          <Input
+            type="text"
+            placeholder="Search"
+            value={searchQuery}
+            onChange={(e) => setSearchQuery(e.target.value)}
+          />
           <Button type="submit" className="flex gap-2">
             <SearchIcon />
             Search
           </Button>
-        </div>
+        </form>
         <div className="flex flex-col">
           <div className="flex gap-6 flex-wrap mx-auto ">
             {categoryList.length > 0
@@ -76,7 +94,9 @@ export default function Search() {
                 })
               : [1, 2, 3, 4, 5].map((item, index) => (
                   <div key={index} className="flex gap-4 animate-pulse ">
-                    <div className="h-[110px] bg-white w-[220px] rounded-lg "></div>
+                    <div className="h-[110px] bg-white w-[220px] rounded-lg text-xs text-gray-500 p-4 items-center justify-center">
+                      Loading...The backend runs on a free tier 'render.com' instance which can delay requests by 50 seconds or more.
+                    </div>
                   </div>
                 ))}
           </div>
