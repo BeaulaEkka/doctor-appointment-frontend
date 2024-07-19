@@ -169,28 +169,28 @@ export default function Details({ params }) {
             </div>
           )}
         </div>
-        <div className=" shadow-md rounded-md p-4 w-[100%] md:w-[100%] lg:w-[27%] ">
-          <h1 className="text-lg font-bold py-4 ">Suggestions</h1>
+        <div className="p-4 w-[100%] md:w-[100%] lg:w-[27%] ">
+          <h1 className="text-lg font-bold pb-4 ">Suggestions</h1>
           <div className="flex gap-4 flex-wrap">
             {suggestedDoctors.map((doctor, index) => (
               <div
                 key={index}
                 className="flex items-center  gap-4 border p-4 rounded-md shadow-md  flex-wrap lg:w-full"
               >
-                <div className="rounded-full overflow-hidden  ">
+                <div className="rounded-full overflow-hidden w-[70px] h-[70px]  ">
                   <Image
                     src={doctor.attributes.Image.data[0].attributes.url}
-                    width={90}
-                    height={90}
+                    width={70}
+                    height={70}
                     alt={doctor.attributes.Name}
-                    className="object-cover w-[90px] h-[90px] "
+                    className="object-cover w-full h-full "
                   />
                 </div>
                 <div className="flex flex-col gap-2">
                   <h3 className="text-md font-semibold">
                     Dr. {doctor.attributes.Name}
                   </h3>
-                  <p class="inline-block text-xs italic text-gray-800 bg-blue-200 px-2 py-1 rounded-full">
+                  <p class="text-xs text-gray-900 bg-blue-100 px-2 py-1 rounded-full w-fit">
                     {doctor.attributes.categories.data[0].attributes.Name}
                   </p>
                   <p className="text-sm text-gray-600">

@@ -19,9 +19,13 @@ const getDoctorByCategory = (category) =>
   );
 const getDoctorById = (id) => axiosClient.get("/doctors/" + id + "?populate=*");
 
+// const getUserBookingList = (userEmail) =>
+//   axiosClient.get(
+//     `/appointments?filters[Email][$eq]=${userEmail}&populate=doctor,doctor.Image`
+//   );
 const getUserBookingList = (userEmail) =>
   axiosClient.get(
-    `/appointments?filters[Email][$eq]=${userEmail}&populate=doctor,doctor.Image`
+    `/appointments?filters[Email][$eq]=${userEmail}&populate=doctor,doctor.Image,doctor.categories`
   );
 
 /**POST */
