@@ -11,7 +11,7 @@ export default function DoctorList({
       <h1 className="mb-16 font-bold text-blue-500 text-2xl pl-2">
         {decodeURIComponent(heading)}
       </h1>
-      <div className="flex flex-wrap items-center justify-center gap-6 mx-auto">
+      <div className="flex flex-wrap items-center justify-left gap-6 mx-auto">
         {doctorList.length > 0
           ? doctorList.map((doctor, index) => {
               const imageUrl =

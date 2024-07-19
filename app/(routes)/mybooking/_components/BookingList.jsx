@@ -13,9 +13,9 @@ export default function BookingList({ bookingList, expired, updateRecord }) {
   };
 
   const onDeleteBooking = (item) => {
-    console.log("item", item);
+    // console.log("item", item);
     GlobalApi.deleteBooking(item.id).then((resp) => {
-      console.log("resp", resp);
+      // console.log("resp", resp);
       if (resp) {
         toast("Appointment Deleted Successfully!");
         updateRecord();
@@ -30,7 +30,6 @@ export default function BookingList({ bookingList, expired, updateRecord }) {
         const categories = doctor.categories.data.map(
           (category) => category.attributes.Name
         );
-        console.log("categories", categories);
 
         return (
           <div
@@ -81,13 +80,7 @@ export default function BookingList({ bookingList, expired, updateRecord }) {
                   </p>
                 </div>
               </div>
-              {/* <div>
-                {!expired && (
-                  <CancelAppointment
-                    onContinueClick={() => onDeleteBooking(item)}
-                  />
-                )}
-              </div> */}
+
               <div>
                 {!expired ? (
                   <CancelAppointment
@@ -95,11 +88,11 @@ export default function BookingList({ bookingList, expired, updateRecord }) {
                   />
                 ) : (
                   <Button
-                  variant="outline"
+                    variant="outline"
                     className="border border-red-600 hover:bg-red-600 text-red-500 hover:text-white"
                     onClick={() => onDeleteBooking(item)}
                   >
-                    Delete 
+                    Delete
                   </Button>
                 )}
               </div>

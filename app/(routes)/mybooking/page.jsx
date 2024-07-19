@@ -15,7 +15,7 @@ export default function Page() {
 
   const getUserBookingList = () => {
     GlobalApi.getUserBookingList(user?.email).then((resp) => {
-      console.log("getUserBookingList", resp.data.data);
+      // console.log("getUserBookingList", resp.data.data);
       setBookingList(resp.data.data);
     });
   };
@@ -26,7 +26,7 @@ export default function Page() {
         ? new Date(item.attributes.Date) >= new Date()
         : new Date(item.attributes.Date) <= new Date()
     );
-    console.log("results", result);
+    // console.log("results", result);
     return result;
   };
 
