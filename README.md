@@ -4,7 +4,9 @@ Welcome to the **Doctor's Appointment App** repository! This project provides a 
 
 ---
 
-[![Doctor's Appointment App](https://github.com/BeaulaEkka/doctor-appointment-frontend/blob/master/public/images/docapp.png)](https://beaula-doctor-appointment-app.vercel.app/)
+<a href="https://beaula-doctor-appointment-app.vercel.app/" target="_blank">
+    <img src="https://github.com/BeaulaEkka/doctor-appointment-frontend/blob/master/public/images/docapp.png" alt="Doctor's Appointment App">
+</a>
 
 ## 🚀 Features and Progress
 
